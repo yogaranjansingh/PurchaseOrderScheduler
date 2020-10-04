@@ -43,6 +43,41 @@ Sample response for /purchaseOrderScheduler
 ]
 ```
 
+```
+[
+    {
+        "slot": {
+            "start": "2018-07-31T18:30:00.000+00:00",
+            "end": "2018-07-31T19:30:00.000+00:00"
+        },
+        "dockId": 1,
+        "capacity": 10,
+        "usedCapacity": 0,
+        "unusedCapacity": 10
+    },
+    {
+        "slot": {
+            "start": "2018-07-31T18:30:00.000+00:00",
+            "end": "2018-07-31T19:30:00.000+00:00"
+        },
+        "dockId": 2,
+        "capacity": 9,
+        "usedCapacity": 0,
+        "unusedCapacity": 9
+    },
+    {
+        "slot": {
+            "start": "2018-07-31T18:30:00.000+00:00",
+            "end": "2018-07-31T19:30:00.000+00:00"
+        },
+        "dockId": 3,
+        "capacity": 5,
+        "usedCapacity": 0,
+        "unusedCapacity": 5
+    }
+]
+```
+
 curl --location --request POST 'http://localhost:8080/getSchedule' \
 --form 'purchaseOrderFile=@/Users/ysingh1/Downloads/purchaseOrderScheduler/po1.csv'
 
@@ -67,6 +102,54 @@ Sample response for /getSchedule
     "unUtilizedCapacity": 0.1
 }
 
+```
+
+```{
+    "message": "Purchase Order Schedule",
+    "scheduleList": [
+        {
+            "slot": {
+                "start": "2018-07-31T18:30:00.000+00:00",
+                "end": "2018-07-31T19:30:00.000+00:00"
+            },
+            "dockId": 3,
+            "purchaseOrderId": 1,
+            "itemId": 1,
+            "quantity": 5
+        },
+        {
+            "slot": {
+                "start": "2018-07-31T18:30:00.000+00:00",
+                "end": "2018-07-31T19:30:00.000+00:00"
+            },
+            "dockId": 2,
+            "purchaseOrderId": 2,
+            "itemId": 2,
+            "quantity": 7
+        },
+        {
+            "slot": {
+                "start": "2018-07-31T18:30:00.000+00:00",
+                "end": "2018-07-31T19:30:00.000+00:00"
+            },
+            "dockId": 2,
+            "purchaseOrderId": 3,
+            "itemId": 3,
+            "quantity": 2
+        },
+        {
+            "slot": {
+                "start": "2018-07-31T18:30:00.000+00:00",
+                "end": "2018-07-31T19:30:00.000+00:00"
+            },
+            "dockId": 1,
+            "purchaseOrderId": 4,
+            "itemId": 4,
+            "quantity": 5
+        }
+    ],
+    "unUtilizedCapacity": 0.16666666666666666
+}
 ```
 
 postman collection : https://www.getpostman.com/collections/053622d358401637d94b
